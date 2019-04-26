@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.mycompany.selenium;
+package Helpers;
 
 /**
  *
  * @author juampi
  */
-public class myClass {
+public class Helpers {
     
 }
