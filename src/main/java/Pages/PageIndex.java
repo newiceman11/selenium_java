@@ -15,31 +15,31 @@ import java.lang.*;
 public class PageIndex {
 
     private WebDriver driver;
-    private By Link;
-
+  
     public PageIndex () {
 
-        Link = By.linkText("SUCURSALES");
     }
 
     @BeforeMethod
     private void SetUp() {
+        
         System.setProperty("webdriver.firefox.driver", "./geckodriver");
         driver = new FirefoxDriver();
-        driver.get("http://www.gruposannicolas.com.ar/");
+        driver.get("https://www.facebook.com/");
     }
 
     @Test
     private void TestGsn() {
         PageSuc Suc = new PageSuc(driver);
         Suc.Sucursal();
+        Suc.Register();
         
     }
 
     @AfterMethod
     private void TearDown() {
         PageTime pause = new PageTime();   
-        pause.Sleep(4);
+        pause.Sleep(5);
         driver.quit();
         System.out.println("success");
     }
