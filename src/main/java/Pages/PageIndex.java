@@ -15,9 +15,9 @@ import java.lang.*;
 public class PageIndex {
 
     private WebDriver driver;
-  
+    
     public PageIndex () {
-
+          
     }
 
     @BeforeMethod
@@ -25,7 +25,7 @@ public class PageIndex {
         
         System.setProperty("webdriver.firefox.driver", "./geckodriver");
         driver = new FirefoxDriver();
-        driver.get("https://www.facebook.com/");
+        driver.get("https://www.facebook.com/");     
     }
 
     @Test
@@ -44,10 +44,10 @@ public class PageIndex {
         System.out.println("success");
     }
 
-    public void Test() {
+    public void Test() {   
         this.SetUp();
         this.TestGsn();
-        this.TearDown();
+        this.TearDown();    
     }
 
 }

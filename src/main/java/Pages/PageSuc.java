@@ -56,7 +56,6 @@ public class PageSuc {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
     
     public void Register(){
