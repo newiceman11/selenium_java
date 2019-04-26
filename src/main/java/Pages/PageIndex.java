@@ -1,5 +1,4 @@
 package Pages;
-//import junit.framework.Test;
 import Helpers.Helpers;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -24,17 +23,14 @@ import org.openqa.selenium.Dimension;
  *
  * @author juampi
  */
-
-public class myClass {
+public class PageIndex {
 
     private WebDriver driver;
     private By Link;
-   
-    
-    
-    public myClass() {
-        
-        Link= By.linkText("SUCURSALES");
+
+    public PageIndex () {
+
+        Link = By.linkText("SUCURSALES");
     }
 
     @BeforeMethod
@@ -42,14 +38,12 @@ public class myClass {
         System.setProperty("webdriver.firefox.driver", "./geckodriver");
         driver = new FirefoxDriver();
         driver.get("http://www.gruposannicolas.com.ar/");
-       
-       
     }
 
     @Test
     private void TestGsn() {
-       PageSuc Suc= new PageSuc(driver);
-       Suc.Sucursal("SUCURSALES");
+        PageSuc Suc = new PageSuc(driver);
+        Suc.Sucursal("SUCURSALES");
     }
 
     @AfterMethod
@@ -58,14 +52,12 @@ public class myClass {
         pause.Sleep(4);
         driver.quit();
         System.out.println("success");
- }
-    
-    public void Test()
-    {
+    }
+
+    public void Test() {
         this.SetUp();
         this.TestGsn();
         this.TearDown();
     }
 
-    
 }
