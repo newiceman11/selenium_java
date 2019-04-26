@@ -4,16 +4,20 @@
  * and open the template in the editor.
  */
 
-package Helpers;
+package Pages;
 
 /**
  *
  * @author juampi
  */
-public class Helpers {
-    int time= 4;
+public class PageTime {
     
-    public Helpers(int _time){
-     time= _time;
-}
+     public void Sleep(int second) {
+        try {
+            Thread.sleep(second * 1000);
+        } catch (InterruptedException e) {
+
+        }
+    }
+    
 }
