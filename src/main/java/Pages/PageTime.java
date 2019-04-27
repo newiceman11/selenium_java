@@ -16,7 +16,7 @@ public class PageTime {
         try {
             Thread.sleep(second * 1000);
         } catch (InterruptedException e) {
-
+            System.out.println(e.getMessage());
         }
     }
     

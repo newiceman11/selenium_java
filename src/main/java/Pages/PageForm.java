@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import Helpers.Helpers;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -27,8 +29,9 @@ public class PageForm {
     private By dropdownYear;
     private By radioMale;
     private By btnSubmit;
-    public PageForm(WebDriver _driver) {
-        this.driver = _driver;
+
+    public PageForm(WebDriver driver) {
+        this.driver = driver;
         text_suc = By.linkText("Forgot account?");
         identify_email = By.id("identify_email");
         email = By.id("email");
@@ -40,7 +43,7 @@ public class PageForm {
         dropdownMonth = By.id("month");
         dropdownYear = By.id("year");
         radioMale = By.id("u_0_a");
-        btnSubmit= By.id("u_0_11");
+        btnSubmit = By.id("u_0_11");
     }
 
     public void Sucursal() {
@@ -59,14 +62,11 @@ public class PageForm {
             driver.findElement(identify_email).sendKeys("xxx@xxxx.com" + Keys.TAB + Keys.TAB + Keys.RETURN);
             PageTime pause = new PageTime();
             pause.Sleep(1);
-            val = true;
-
-            if (val = true) {
-                driver.findElement(email).sendKeys("xxx@xxxx.com" + Keys.TAB + "xxxxxxx" + Keys.ENTER);
-                PageTime time = new PageTime();
-                time.Sleep(2);
-                driver.findElement(log_out).click();
-            }
+            driver.findElement(email).sendKeys("xxx@xxxx.com" + Keys.TAB + "xxxxxxx" + Keys.ENTER);
+            PageTime time = new PageTime();
+            time.Sleep(2);
+            driver.findElement(log_out).click();
+             
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -75,8 +75,15 @@ public class PageForm {
     public void Register() {
         driver.findElement(input_name).sendKeys("Juan Pablo" + Keys.TAB + "Foos" + Keys.TAB + "xxx@xxx.com" + Keys.TAB + "x123x123x");
         PageTime time = new PageTime();
-        time.Sleep(2);
-        driver.findElement(input_validate).sendKeys("xxx@xxx.com");
+        //time.Sleep(2);
+        try{
+         WebDriverWait wait = new WebDriverWait(driver, 10);
+         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(input_validate));
+        element.sendKeys("xxx@xxx.com");
+        }
+        catch(Exception e){
+        System.out.println("Error de excepcion" +e.getMessage()); 
+        }
     }
 
     public void select(String day, String month, String year) {

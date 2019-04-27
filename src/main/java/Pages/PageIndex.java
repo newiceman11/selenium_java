@@ -30,7 +30,7 @@ public class PageIndex {
         driver.get("https://www.facebook.com/");
     }
 
-    @Ignore
+    //@Ignore
     @Test
     private void TestGsn() {
         PageForm Suc = new PageForm(driver);
@@ -44,7 +44,7 @@ public class PageIndex {
 
     }
 
-    @Ignore
+    //@Ignore
     @Test
     private void TestForm() {
         PageForm Suc = new PageForm(driver);
@@ -67,17 +67,18 @@ public class PageIndex {
     }
 
     public void Test() {
-        try{this.SetUp();} catch(Exception e){System.out.println(e.getMessage());}
         
-        try{this.TestGsn();} catch(Exception e){System.out.println(e.getMessage());}
+        try{this.SetUp();} catch(Exception e){System.out.println("SetUp() error" +e.getMessage());}
         
-        try{this.TestRegister();} catch(Exception e){System.out.println(e.getMessage());}
+        try{this.TestGsn();} catch(Exception e){System.out.println("TestGsn() error" +e.getMessage());}
         
-        try{this.TestForm();} catch(Exception e){System.out.println(e.getMessage());}
+        try{this.TestRegister();} catch(Exception e){System.out.println("TestRegister()" +e.getMessage());}
         
-        try{ this.TestButton();} catch(Exception e){System.out.println(e.getMessage());}
+        try{this.TestForm();} catch(Exception e){System.out.println("TestForm()" +e.getMessage());}
+        
+        try{ this.TestButton();} catch(Exception e){System.out.println("TestButton()" +e.getMessage());}
        
-        try{this.TearDown();}catch(Exception e){System.out.println(e.getMessage());}
+        try{this.TearDown();}catch(Exception e){System.out.println("TearDown()" +e.getMessage());}
         
     }
 }
